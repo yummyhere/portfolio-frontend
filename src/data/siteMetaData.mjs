@@ -1,0 +1,22 @@
+export const siteMetadata = {
+  title: "Yamna Fatima portfolio",
+  author: "Yamna Fatima",
+  headerTitle: "Yamna Fatima",
+  description: "Fullstack developer",
+  language: "en-us",
+  theme: "light",
+  siteName: "Yamna Fatima Portfolio",
+  siteUrl: "http://localhost:3000",
+
+  siteRepo: "https://github.com/yummyhere",
+  siteLogo: "/favicon.ico",
+  image: "/static/homepage.png",
+  twitterImage: "/static/homepage.png",
+  socialBanner: "/static/homepage.png",
+  email: "yamnafatima.tms@gmail.com",
+  github: "https://github.com/yummyhere",
+  twitter: "https://twitter.com/amitcha2638",
+  linkedin: "https://www.linkedin.com/in/yamna-fatima-93529b36b",
+  locale: "en-US",
+  googleSiteVerification: "_YJlO90eSoye2AQOhbkRAzNbejzCGiTgAD4RNR3NtHc",
+};

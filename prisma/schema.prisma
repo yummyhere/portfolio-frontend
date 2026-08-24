@@ -1,0 +1,41 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model ContactMessage {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String
+  subject   String
+  message   String
+  createdAt DateTime @default(now())
+}
+
+model Project {
+  id              Int      @id @default(autoincrement())
+  name            String
+  favicon         String
+  imageUrl        String
+  description     String
+  sourceCodeHref  String
+  liveWebsiteHref String?
+  showcaseTitle   String?
+  showcaseHref    String  @default("/projects")
+  showcaseTags    String  @default("[]")
+  showcaseLight   String?
+  showcaseDark    String?
+  createdAt       DateTime @default(now())
+}
+
+model Skill {
+  id          Int    @id @default(autoincrement())
+  sectionName String
+  name        String
+  icon        String
+  sortOrder   Int    @default(0)
+}

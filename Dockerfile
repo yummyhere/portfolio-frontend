@@ -1,10 +1,8 @@
 # Install dependencies
 FROM node:20.10-bookworm-slim as Dependencies
 WORKDIR /app
-COPY package.json pnpm-lock.yaml ./
-RUN npm install -g pnpm
-RUN pnpm install
-RUN pnpm install sharp
+COPY package.json package-lock.json ./
+RUN npm ci
 
 # Building standalone app
 FROM node:20.10-bookworm-slim as Builder

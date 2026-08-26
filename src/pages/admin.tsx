@@ -1,4 +1,4 @@
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useCallback, useEffect, useState } from "react";
 
 type Message = {
   id: number;
@@ -24,7 +24,7 @@ export default function Admin() {
     liveWebsiteHref: "",
   });
 
-  const load = async () => {
+  const load = useCallback(async () => {
     const headers = { Authorization: `Bearer ${token}` };
     const [messagesResponse, projectsResponse] = await Promise.all([
       fetch("/api/admin/messages", { headers }),
@@ -34,7 +34,7 @@ export default function Admin() {
     setMessages(await messagesResponse.json());
     setProjects(await projectsResponse.json());
     setNotice("");
-  };
+  }, [token]);
 
   useEffect(() => {
     const savedToken = window.localStorage.getItem("admin-token") ?? "";
@@ -47,7 +47,7 @@ export default function Admin() {
     void load();
     const interval = window.setInterval(() => void load(), 5000);
     return () => window.clearInterval(interval);
-  }, [token]);
+  }, [load, token]);
 
   const createProject = async (event: FormEvent) => {
     event.preventDefault();

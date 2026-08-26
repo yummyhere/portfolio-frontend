@@ -22,5 +22,4 @@ export const EXPERIENCE: ExperienceShowcaseListItemProps[] = [
     description:
       "Social Media Marketer who creates engaging content, manages social media platforms, and develops strategies to grow brand visibility and audience engagement.",
   },
-
 ];

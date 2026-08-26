@@ -10,11 +10,7 @@ import { SKILL_ICONS } from "@/data/skills";
 import { siteMetadata } from "@/data/siteMetaData.mjs";
 import { getPortfolioData, type PortfolioData } from "@/lib/portfolio";
 
-export default function Home({
-  portfolio,
-}: {
-  portfolio: PortfolioData;
-}) {
+export default function Home({ portfolio }: { portfolio: PortfolioData }) {
   const skills = portfolio.skills.map((section) => ({
     sectionName: section.sectionName,
     skills: section.skills.flatMap((skill) => {
@@ -72,4 +68,3 @@ export default function Home({
 export const getServerSideProps: GetServerSideProps = async () => ({
   props: { portfolio: await getPortfolioData() },
 });
-
